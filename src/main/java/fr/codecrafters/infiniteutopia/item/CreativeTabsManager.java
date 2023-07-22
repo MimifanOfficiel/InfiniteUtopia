@@ -2,9 +2,11 @@ package fr.codecrafters.infiniteutopia.item;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.BlocksManager;
+import fr.codecrafters.infiniteutopia.item.elements.ChemicalElement;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -30,11 +32,15 @@ public class CreativeTabsManager {
                     })
                     .build());
 
-    public static final RegistryObject<CreativeModeTab> ORES_TAB = CREATIVE_MOD_TABS.register("ores_tab",
+    public static final RegistryObject<CreativeModeTab> CHEMICAL_TAB = CREATIVE_MOD_TABS.register("chemical_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(BlocksManager.CUTTING_BOARD.get()))
-                    .title(Component.translatable("creativetab.ores_tab"))
+                    .title(Component.translatable("creativetab.chemical_tab"))
                     .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(BlocksManager.CUTTING_BOARD.get());
+                        for (RegistryObject<Item> entry : ItemsManager.ITEMS.getEntries()) {
+                            if (entry.isPresent() && (entry.get()) instanceof ChemicalElement) {
+                                pOutput.accept(entry.get());
+                            }
+                        }
                     })
                     .build());
 

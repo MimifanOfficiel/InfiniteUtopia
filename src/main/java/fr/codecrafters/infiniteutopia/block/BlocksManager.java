@@ -1,6 +1,7 @@
 package fr.codecrafters.infiniteutopia.block;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
+import fr.codecrafters.infiniteutopia.block.elements.ElementBlock;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -23,16 +24,18 @@ public class BlocksManager {
     public static final RegistryObject<Block> CUTTING_BOARD = registerBlock("cutting_board",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
                     .sound(SoundType.WOOD)));
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+        return registerBlock(name, block, new Item.Properties());
+    }
 
-
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Item.Properties properties){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
+        registerBlockItem(name, toReturn, properties);
         return toReturn;
     }
 
-    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){
-        return ItemsManager.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, Item.Properties properties){
+        return ItemsManager.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
     }
 
 
