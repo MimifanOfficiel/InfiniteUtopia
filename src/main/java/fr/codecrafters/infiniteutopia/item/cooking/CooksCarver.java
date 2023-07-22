@@ -6,8 +6,8 @@ import net.minecraft.world.item.context.UseOnContext;
 
 public class CooksCarver extends Item {
 
-    public CooksCarver(Properties pProperties) {
-        super(pProperties);
+    public CooksCarver() {
+        super(new Item.Properties().durability(128));
     }
 
     @Override

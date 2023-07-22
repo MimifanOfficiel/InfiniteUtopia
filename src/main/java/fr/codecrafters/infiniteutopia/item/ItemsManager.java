@@ -14,7 +14,7 @@ public class ItemsManager {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, InfiniteUtopia.MOD_ID);
 
     public static final RegistryObject<Item> COOKS_CARVER = ITEMS.register("cooks_carver",
-            () -> new CooksCarver(new Item.Properties().durability(128)));
+            () -> new CooksCarver());
 
     public static final RegistryObject<ChemicalElement> HYDROGEN = ITEMS.register("elements/hydrogen",
             () -> new ChemicalElement("hydrogen", 1, 1.008, 14.01, 20.28, 0.08375));
