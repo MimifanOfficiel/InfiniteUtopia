@@ -1,8 +1,11 @@
 package fr.codecrafters.infiniteutopia.block.entity;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
+import fr.codecrafters.infiniteutopia.networking.Messages;
+import fr.codecrafters.infiniteutopia.networking.packet.ItemStackSyncS2CPacket;
 import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
 import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.SimpleContainer;
@@ -35,10 +38,13 @@ import java.util.Optional;
 public class CuttingBoardEntity extends BlockEntity {
 
     @Getter
-    private final ItemStackHandler handler = new ItemStackHandler(1) {
+    private ItemStackHandler handler = new ItemStackHandler(1) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
+            if (level != null && !level.isClientSide) {
+                Messages.sendToClients(new ItemStackSyncS2CPacket(this, worldPosition));
+            }
         }
     };
 
@@ -58,6 +64,12 @@ public class CuttingBoardEntity extends BlockEntity {
     public void invalidateCaps() {
         super.invalidateCaps();
         lazyItemHandler.invalidate();
+    }
+
+    public void setHandler(ItemStackHandler newHandler) {
+        for (int i = 0; i < newHandler.getSlots(); i++) {
+            handler.setStackInSlot(i, newHandler.getStackInSlot(i));
+        }
     }
 
     @Override
