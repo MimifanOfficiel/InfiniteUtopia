@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
@@ -33,11 +34,11 @@ public class CuttingBoardEntityRenderer implements BlockEntityRenderer<CuttingBo
         ItemStack itemStack = pBlockEntity.getItem();
 
         for (int i = 0; i < Math.min(itemStack.getCount(), 4); i++) {
-            renderItem(itemStack, pPoseStack, pBlockEntity, pBuffer, i);
+            renderItem(itemStack, pPoseStack, pBlockEntity, pBuffer, i, itemStack.getCount() == 1);
         }
     }
 
-    private void renderItem(ItemStack itemStack, PoseStack pPoseStack, CuttingBoardEntity entity, MultiBufferSource pBuffer, int position) {
+    private void renderItem(ItemStack itemStack, PoseStack pPoseStack, CuttingBoardEntity entity, MultiBufferSource pBuffer, int position, boolean hasOnlyOneItem) {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
         int dx = 0, dz = 0;
@@ -47,15 +48,36 @@ public class CuttingBoardEntityRenderer implements BlockEntityRenderer<CuttingBo
             case EAST, WEST -> dz = 1;
         }
 
+        boolean isSouthOrWest = entity.getBlockState().getValue(CuttingBoard.FACING) == Direction.SOUTH || entity.getBlockState().getValue(CuttingBoard.FACING) == Direction.WEST;
+        boolean isSouthOrEast = entity.getBlockState().getValue(CuttingBoard.FACING) == Direction.SOUTH || entity.getBlockState().getValue(CuttingBoard.FACING) == Direction.EAST;
+
+        double stack = isSouthOrWest ? 0.75 : 0.25;
+        double item = isSouthOrWest ? 0.4 : 0.6;
+
+        double delta = isSouthOrEast ? 0.55 : 0.45;
+
         pPoseStack.pushPose();
         if (position == 0) {
-            pPoseStack.translate(dx == 0 ? 0.40 : dx * 0.25, (0.08), dz == 0 ? 0.40 : dz * 0.25);
+
+            if (hasOnlyOneItem) {
+                pPoseStack.translate(0.5, 0.08, 0.5);
+            } else {
+                pPoseStack.translate(dx == 0 ? delta : item, 0.08, dz == 0 ? delta : item);
+            }
+
         } else {
-            pPoseStack.translate(dx == 0 ? 0.40 : dx * 0.6, (0.08 + (0.03 * (position - 1))), dz == 0 ? 0.40 : dz * 0.6);
+            pPoseStack.translate(dx == 0 ? delta : stack, (0.08 + (0.03 * (position - 1))), dz == 0 ? delta : stack);
         }
 
         pPoseStack.scale(0.6f, 0.6f, 0.6f);
         pPoseStack.rotateAround(new Quaternionf(new AxisAngle4f((float) (Math.PI/2), 1, 0, 0)), 0F, 0F, 0F);
+
+        switch (entity.getBlockState().getValue(CuttingBoard.FACING)) {
+            case NORTH -> pPoseStack.rotateAround(new Quaternionf(new AxisAngle4f((float) 0, 0, 0, 1)), 0F, 0F, 0F);
+            case EAST -> pPoseStack.rotateAround(new Quaternionf(new AxisAngle4f((float) (Math.PI/2), 0, 0, 1)), 0F, 0F, 0F);
+            case SOUTH -> pPoseStack.rotateAround(new Quaternionf(new AxisAngle4f((float) ((Math.PI)), 0, 0, 1)), 0F, 0F, 0F);
+            case WEST -> pPoseStack.rotateAround(new Quaternionf(new AxisAngle4f((float) (3 * (Math.PI/2)), 0, 0, 1)), 0F, 0F, 0F);
+        }
 
         itemRenderer.renderStatic(
                 itemStack,
