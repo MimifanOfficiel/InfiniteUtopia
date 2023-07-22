@@ -1,9 +1,17 @@
 {
-  "item.infinite_utopia.cooks_carver": "Cook's Carver",
-  "item.infinite_utopia.cutting_board": "Cutting Board",
   "creativetab.tools_tab": "Infinite Utopia's tools",
   "creativetab.blocks_tab": "Infinite Utopia's blocks",
   "creativetab.chemical_tab": "Infinite Utopia's chemical elements",
+
+
+  "block.infinite_utopia.cutting_board": "Cutting Board",
+
+
+  "item.infinite_utopia.cooks_carver": "Cook's Carver",
+  "item.infinite_utopia.cutting_board": "Cutting Board",
+
+
+
   "item.infinite_utopia.elements.hydrogen": "Hydrogen",
   "item.infinite_utopia.elements.helium": "Helium",
   "item.infinite_utopia.elements.lithium": "Lithium",
