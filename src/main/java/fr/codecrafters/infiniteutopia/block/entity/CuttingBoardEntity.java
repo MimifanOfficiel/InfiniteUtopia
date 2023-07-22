@@ -1,11 +1,16 @@
 package fr.codecrafters.infiniteutopia.block.entity;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
+import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
+import lombok.Getter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -25,8 +30,11 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class CuttingBoardEntity extends BlockEntity {
 
+    @Getter
     private final ItemStackHandler handler = new ItemStackHandler(1) {
         @Override
         protected void onContentsChanged(int slot) {

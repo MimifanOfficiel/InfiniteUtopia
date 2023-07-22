@@ -1,0 +1,13 @@
+{
+  "type": "infinite_utopia:cutting_board",
+  "input": {
+    "item": "minecraft:beef"
+  },
+    "output": {
+        "item": "minecraft:cooked_beef",
+        "count": 1
+    },
+  "tool": {
+    "item": "infinite_utopia:cooks_carver"
+  }
+}

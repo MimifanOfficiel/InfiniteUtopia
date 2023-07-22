@@ -5,6 +5,7 @@ import fr.codecrafters.infiniteutopia.block.BlocksManager;
 import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
 import fr.codecrafters.infiniteutopia.item.CreativeTabsManager;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
+import fr.codecrafters.infiniteutopia.recipe.RecipesManager;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +32,7 @@ public class InfiniteUtopia {
         BlocksManager.register(modEventBus);
         CreativeTabsManager.register(modEventBus);
         BlockEntitiesManager.register(modEventBus);
+        RecipesManager.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

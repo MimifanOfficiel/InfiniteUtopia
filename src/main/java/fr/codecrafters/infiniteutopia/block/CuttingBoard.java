@@ -2,9 +2,11 @@ package fr.codecrafters.infiniteutopia.block;
 
 import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
 import fr.codecrafters.infiniteutopia.block.entity.CuttingBoardEntity;
+import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -28,6 +30,8 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class CuttingBoard extends Block implements EntityBlock {
 
@@ -54,12 +58,12 @@ public class CuttingBoard extends Block implements EntityBlock {
     }
 
     @Override
-    public BlockState mirror(BlockState pState, Mirror pMirror) {
+    public @NotNull BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public @NotNull VoxelShape getShape(BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
         return switch (pState.getValue(FACING)) {
             case NORTH, SOUTH -> SHAPE;
             case EAST, WEST -> ROTATED_SHAPE;
@@ -74,25 +78,22 @@ public class CuttingBoard extends Block implements EntityBlock {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+    public BlockEntity newBlockEntity(@NotNull BlockPos pPos, @NotNull BlockState pState) {
         return new CuttingBoardEntity(pPos, pState);
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState pState) {
+    public @NotNull RenderShape getRenderShape(@NotNull BlockState pState) {
         return RenderShape.MODEL;
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-
-        // TODO: check for recipe
+    public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide && hand == InteractionHand.MAIN_HAND) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             ItemStack itemInHand = player.getItemInHand(hand);
 
-            if (blockEntity instanceof CuttingBoardEntity) {
-                CuttingBoardEntity cuttingBoardEntity = (CuttingBoardEntity) blockEntity;
+            if (blockEntity instanceof CuttingBoardEntity cuttingBoardEntity) {
 
                 if (player.isCrouching()) {
                     ItemStack itemStack = cuttingBoardEntity.getItem();
@@ -110,6 +111,11 @@ public class CuttingBoard extends Block implements EntityBlock {
                         return InteractionResult.SUCCESS;
                     }
                 } else {
+                    if (hasRecipe(cuttingBoardEntity, itemInHand)) {
+                        craftItem(cuttingBoardEntity, itemInHand, player);
+                        return InteractionResult.SUCCESS;
+                    }
+
                     ItemStack itemStack = cuttingBoardEntity.getItem();
 
                     if (itemStack != ItemStack.EMPTY) {
@@ -131,7 +137,7 @@ public class CuttingBoard extends Block implements EntityBlock {
     }
 
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+    public void onRemove(@NotNull BlockState pState, Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pNewState, boolean pIsMoving) {
         if (!pLevel.isClientSide()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof CuttingBoardEntity) {
@@ -141,6 +147,44 @@ public class CuttingBoard extends Block implements EntityBlock {
                 if (itemStack != ItemStack.EMPTY) {
                     pLevel.addFreshEntity(new ItemEntity(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), itemStack));
                 }
+            }
+        }
+    }
+
+    private static boolean hasRecipe(CuttingBoardEntity e, ItemStack itemInHand) {
+        Level level = e.getLevel();
+        SimpleContainer container = new SimpleContainer(e.getHandler().getSlots() + 1);
+        container.setItem(0, e.getItem());
+        container.setItem(1, itemInHand);
+
+        if (level == null) return false;
+
+        Optional<CuttingBoardRecipe> match = level.getRecipeManager().getRecipeFor(CuttingBoardRecipe.Type.INSTANCE, container, level);
+
+        return match.isPresent();
+    }
+
+    private static void craftItem(CuttingBoardEntity e, ItemStack itemInHand, Player player) {
+        Level level = e.getLevel();
+        SimpleContainer container = new SimpleContainer(e.getHandler().getSlots() + 1);
+        container.setItem(0, e.getItem());
+        container.setItem(1, itemInHand);
+
+        if (level == null) return;
+
+        Optional<CuttingBoardRecipe> match = level.getRecipeManager().getRecipeFor(CuttingBoardRecipe.Type.INSTANCE, container, level);
+
+        if (match.isPresent()) {
+            e.getHandler().extractItem(0, 1, false);
+
+            if (!player.isCreative())
+                itemInHand.hurt(1, level.random, null);
+
+            ItemStack result = match.get().getResultItem();
+            if (!level.isClientSide) {
+                ItemEntity itemEntity = new ItemEntity(level, e.getBlockPos().getX(), e.getBlockPos().getY(), e.getBlockPos().getZ(), result);
+                itemEntity.setPickUpDelay(10);
+                level.addFreshEntity(itemEntity);
             }
         }
     }
