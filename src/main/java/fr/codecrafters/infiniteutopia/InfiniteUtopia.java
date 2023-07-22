@@ -2,6 +2,7 @@ package fr.codecrafters.infiniteutopia;
 
 import com.mojang.logging.LogUtils;
 import fr.codecrafters.infiniteutopia.block.BlocksManager;
+import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
 import fr.codecrafters.infiniteutopia.item.CreativeTabsManager;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -29,6 +30,7 @@ public class InfiniteUtopia {
         ItemsManager.register(modEventBus);
         BlocksManager.register(modEventBus);
         CreativeTabsManager.register(modEventBus);
+        BlockEntitiesManager.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

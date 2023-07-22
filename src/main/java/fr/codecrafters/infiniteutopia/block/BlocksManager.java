@@ -21,8 +21,7 @@ public class BlocksManager {
 
 
     public static final RegistryObject<Block> CUTTING_BOARD = registerBlock("cutting_board",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
-                    .sound(SoundType.WOOD)));
+            CuttingBoard::new);
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block, new Item.Properties());
     }
