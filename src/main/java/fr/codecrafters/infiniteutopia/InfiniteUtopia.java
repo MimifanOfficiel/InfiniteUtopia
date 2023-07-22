@@ -5,7 +5,6 @@ import fr.codecrafters.infiniteutopia.block.BlocksManager;
 import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
 import fr.codecrafters.infiniteutopia.item.CreativeTabsManager;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
-import fr.codecrafters.infiniteutopia.networking.Messages;
 import fr.codecrafters.infiniteutopia.recipe.RecipesManager;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -42,9 +41,8 @@ public class InfiniteUtopia {
 
     }
 
+    private void commonSetup(final FMLCommonSetupEvent event)  {
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(Messages::register);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
