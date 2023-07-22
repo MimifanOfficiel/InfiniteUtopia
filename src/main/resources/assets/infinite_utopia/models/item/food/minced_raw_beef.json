@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "infinite_utopia:item/food/minced_raw_beef"
+  }
+
+}

@@ -3,6 +3,8 @@ package fr.codecrafters.infiniteutopia;
 import com.mojang.logging.LogUtils;
 import fr.codecrafters.infiniteutopia.block.BlocksManager;
 import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
+import fr.codecrafters.infiniteutopia.enchantments.EnchantmentsManager;
+import fr.codecrafters.infiniteutopia.enchantments.enchants.telekinesis.MiningHandler;
 import fr.codecrafters.infiniteutopia.item.CreativeTabsManager;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import fr.codecrafters.infiniteutopia.item.elements.ElementsRegister;
@@ -47,6 +49,14 @@ public class InfiniteUtopia {
 
         /* Recipes registration */
         RecipesManager.register(modEventBus);
+
+
+        /* Enchantments registration */
+        EnchantmentsManager.register(modEventBus);
+
+
+        /* Events registration */
+        MinecraftForge.EVENT_BUS.register(new MiningHandler());
 
 
         modEventBus.addListener(this::commonSetup);

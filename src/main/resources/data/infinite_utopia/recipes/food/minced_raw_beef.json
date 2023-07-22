@@ -3,10 +3,10 @@
   "input": {
     "item": "minecraft:beef"
   },
-    "output": {
-        "item": "minecraft:cooked_beef",
-        "count": 1
-    },
+  "output": {
+    "item": "infinite_utopia:food/minced_raw_beef",
+    "count": 1
+  },
   "tool": {
     "item": "infinite_utopia:cooks_carver"
   }

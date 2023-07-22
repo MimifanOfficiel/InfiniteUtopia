@@ -5,14 +5,17 @@
   "creativetab.food_tab": "Infinite Utopia's food",
 
 
+  "enchantment.infinite_utopia.telekinesis": "Telekinesis",
+
+
   "block.infinite_utopia.cutting_board": "Cutting Board",
 
 
   "item.infinite_utopia.cooks_carver": "Cook's Carver",
   "item.infinite_utopia.cutting_board": "Cutting Board",
 
-  
-  "minced_raw_beef": "Minced raw beef",
+
+  "item.infinite_utopia.food.minced_raw_beef": "Minced raw beef",
 
 
   "item.infinite_utopia.elements.hydrogen": "Hydrogen",

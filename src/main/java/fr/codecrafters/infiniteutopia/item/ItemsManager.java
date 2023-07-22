@@ -22,7 +22,7 @@ public class ItemsManager {
     public static final RegistryObject<Item> COOKS_CARVER = ITEMS.register("cooks_carver",
             CooksCarver::new);
 
-    public static final RegistryObject<Item> MINCED_RAW_BEEF = ITEMS.register("minced_raw_beef",
+    public static final RegistryObject<Item> MINCED_RAW_BEEF = ITEMS.register("food/minced_raw_beef",
             () -> new Consumable(2, 0.2F));
 
 
