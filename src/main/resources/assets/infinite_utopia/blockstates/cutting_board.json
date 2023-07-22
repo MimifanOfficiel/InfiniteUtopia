@@ -1,19 +1,20 @@
 {
   "variants": {
     "facing=north": {
-      "model": "infinite_utopia:block/cutting_board"
-    },
-    "facing=south": {
-      "model": "infinite_utopia:block/cutting_board",
-      "y": 180
-    },
-    "facing=east": {
       "model": "infinite_utopia:block/cutting_board",
       "y": 90
     },
-    "facing=west": {
+    "facing=south": {
       "model": "infinite_utopia:block/cutting_board",
       "y": 270
+    },
+    "facing=east": {
+      "model": "infinite_utopia:block/cutting_board",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "infinite_utopia:block/cutting_board",
+      "y": 0
     }
   }
 }
