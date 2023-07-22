@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -180,7 +181,7 @@ public class CuttingBoard extends Block implements EntityBlock {
             if (!player.isCreative())
                 itemInHand.hurt(1, level.random, null);
 
-            if (itemInHand.getDamageValue() <= 0)
+            if (itemInHand.getDamageValue() >= itemInHand.getMaxDamage())
                 player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
 
             ItemStack result = match.get().getResultItem();
