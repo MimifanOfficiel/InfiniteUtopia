@@ -33,7 +33,7 @@ public class CreativeTabsManager {
                     .build());
 
     public static final RegistryObject<CreativeModeTab> CHEMICAL_TAB = CREATIVE_MOD_TABS.register("chemical_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(BlocksManager.CUTTING_BOARD.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsManager.CARBON.get()))
                     .title(Component.translatable("creativetab.chemical_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         for (RegistryObject<Item> entry : ItemsManager.ITEMS.getEntries()) {
