@@ -60,7 +60,7 @@ public class CuttingBoardEntityRenderer implements BlockEntityRenderer<CuttingBo
         if (position == 0) {
 
             if (hasOnlyOneItem) {
-                pPoseStack.translate(0.5, 0.08, 0.5);
+                pPoseStack.translate(delta, 0.08, delta);
             } else {
                 pPoseStack.translate(dx == 0 ? delta : item, 0.08, dz == 0 ? delta : item);
             }
