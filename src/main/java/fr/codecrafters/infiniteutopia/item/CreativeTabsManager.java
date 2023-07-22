@@ -3,6 +3,8 @@ package fr.codecrafters.infiniteutopia.item;
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.BlocksManager;
 import fr.codecrafters.infiniteutopia.item.elements.ChemicalElement;
+import fr.codecrafters.infiniteutopia.item.elements.ElementsRegister;
+import fr.codecrafters.infiniteutopia.item.food.Consumable;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -33,11 +35,23 @@ public class CreativeTabsManager {
                     .build());
 
     public static final RegistryObject<CreativeModeTab> CHEMICAL_TAB = CREATIVE_MOD_TABS.register("chemical_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsManager.CARBON.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ElementsRegister.CARBON.get()))
                     .title(Component.translatable("creativetab.chemical_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         for (RegistryObject<Item> entry : ItemsManager.ITEMS.getEntries()) {
                             if (entry.isPresent() && (entry.get()) instanceof ChemicalElement) {
+                                pOutput.accept(entry.get());
+                            }
+                        }
+                    })
+                    .build());
+
+    public static final RegistryObject<CreativeModeTab> FOODS_TAB = CREATIVE_MOD_TABS.register("foods_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsManager.MINCED_RAW_BEEF.get()))
+                    .title(Component.translatable("creativetab.food_tab"))
+                    .displayItems((pParameters, pOutput) -> {
+                        for(RegistryObject<Item> entry : ItemsManager.ITEMS.getEntries()){
+                            if (entry.isPresent() && (entry.get()) instanceof Consumable) {
                                 pOutput.accept(entry.get());
                             }
                         }
