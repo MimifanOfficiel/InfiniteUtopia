@@ -1,7 +1,6 @@
 package fr.codecrafters.infiniteutopia.block;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
-import fr.codecrafters.infiniteutopia.block.elements.ElementBlock;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
