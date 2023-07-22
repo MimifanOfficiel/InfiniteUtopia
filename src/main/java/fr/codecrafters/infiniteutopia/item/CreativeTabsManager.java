@@ -1,6 +1,7 @@
 package fr.codecrafters.infiniteutopia.item;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
+import fr.codecrafters.infiniteutopia.block.BlocksManager;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -18,6 +19,22 @@ public class CreativeTabsManager {
                     .title(Component.translatable("creativetab.tools_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ItemsManager.COOKS_CARVER.get());
+                    })
+                    .build());
+
+    public static final RegistryObject<CreativeModeTab> BLOCKS_TAB = CREATIVE_MOD_TABS.register("blocks_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(BlocksManager.CUTTING_BOARD.get()))
+                    .title(Component.translatable("creativetab.blocks_tab"))
+                    .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(BlocksManager.CUTTING_BOARD.get());
+                    })
+                    .build());
+
+    public static final RegistryObject<CreativeModeTab> ORES_TAB = CREATIVE_MOD_TABS.register("ores_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(BlocksManager.CUTTING_BOARD.get()))
+                    .title(Component.translatable("creativetab.ores_tab"))
+                    .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(BlocksManager.CUTTING_BOARD.get());
                     })
                     .build());
 
