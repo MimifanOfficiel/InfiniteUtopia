@@ -180,9 +180,12 @@ public class CuttingBoard extends Block implements EntityBlock {
             if (!player.isCreative())
                 itemInHand.hurt(1, level.random, null);
 
+            if (itemInHand.getDamageValue() <= 0)
+                player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+
             ItemStack result = match.get().getResultItem();
             if (!level.isClientSide) {
-                ItemEntity itemEntity = new ItemEntity(level, e.getBlockPos().getX(), e.getBlockPos().getY(), e.getBlockPos().getZ(), result);
+                ItemEntity itemEntity = new ItemEntity(level, e.getBlockPos().getX() + 0.5, e.getBlockPos().getY() + 0.2, e.getBlockPos().getZ() + 0.5, result);
                 itemEntity.setPickUpDelay(10);
                 level.addFreshEntity(itemEntity);
             }
