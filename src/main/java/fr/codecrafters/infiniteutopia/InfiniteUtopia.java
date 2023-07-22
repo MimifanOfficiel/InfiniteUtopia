@@ -56,7 +56,7 @@ public class InfiniteUtopia {
 
 
         /* Events registration */
-        MinecraftForge.EVENT_BUS.register(new MiningHandler());
+        modEventBus.register(new MiningHandler());
 
 
         modEventBus.addListener(this::commonSetup);

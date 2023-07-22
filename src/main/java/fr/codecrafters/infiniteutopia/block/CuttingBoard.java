@@ -4,6 +4,7 @@ import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
 import fr.codecrafters.infiniteutopia.block.entity.CuttingBoardEntity;
 import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
@@ -38,10 +39,6 @@ public class CuttingBoard extends Block implements EntityBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    private static final VoxelShape SHAPE = Shapes.box(0.125, 0, 0.25, 0.875, 0.125, 0.75);
-
-    private static final VoxelShape ROTATED_SHAPE = Shapes.box(0.25, 0, 0.125, 0.75, 0.125, 0.875);
-
     public CuttingBoard() {
         super(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
                 .sound(SoundType.WOOD).dynamicShape().noOcclusion());
@@ -65,16 +62,56 @@ public class CuttingBoard extends Block implements EntityBlock {
 
     @Override
     public @NotNull VoxelShape getShape(BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-        return switch (pState.getValue(FACING)) {
-            case NORTH, SOUTH -> SHAPE;
-            case EAST, WEST -> ROTATED_SHAPE;
-            default -> super.getShape(pState, pLevel, pPos, pContext);
-        };
+        return this.getShape(pState.getValue(FACING));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
+    }
+
+    public VoxelShape getShape(Direction direction) {
+        switch (direction) {
+            case WEST -> {
+                VoxelShape shape = Shapes.empty();
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0, 0.0625, 0.375, 0.0625, 0.9375), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.375, 0, 0.1875, 0.8125, 0.0625, 0.9375), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.625, 0, 0.0625, 0.8125, 0.0625, 0.1875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.375, 0, 0.0625, 0.625, 0.0625, 0.125), BooleanOp.OR);
+
+                return shape;
+            }
+            case EAST -> {
+                VoxelShape shape = Shapes.empty();
+                shape = Shapes.join(shape, Shapes.box(0.625, 0, 0.0625, 0.8125, 0.0625, 0.9375), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0, 0.0625, 0.625, 0.0625, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0, 0.8125, 0.375, 0.0625, 0.9375), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.375, 0, 0.875, 0.625, 0.0625, 0.9375), BooleanOp.OR);
+
+                return shape;
+            }
+            case NORTH -> {
+                    VoxelShape shape = Shapes.empty();
+                    shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.1875, 0.9375, 0.0625, 0.375), BooleanOp.OR);
+                    shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.375, 0.8125, 0.0625, 0.8125), BooleanOp.OR);
+                    shape = Shapes.join(shape, Shapes.box(0.8125, 0, 0.625, 0.9375, 0.0625, 0.8125), BooleanOp.OR);
+                    shape = Shapes.join(shape, Shapes.box(0.875, 0, 0.375, 0.9375, 0.0625, 0.625), BooleanOp.OR);
+
+                    return shape;
+            }
+            case SOUTH -> {
+
+                VoxelShape shape = Shapes.empty();
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.625, 0.9375, 0.0625, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0, 0.1875, 0.9375, 0.0625, 0.625), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.1875, 0.1875, 0.0625, 0.375), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.375, 0.125, 0.0625, 0.625), BooleanOp.OR);
+
+                return shape;
+            }
+        }
+
+        return Shapes.empty();
     }
 
     @Nullable
