@@ -10,6 +10,8 @@ import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import fr.codecrafters.infiniteutopia.item.elements.ElementsRegister;
 import fr.codecrafters.infiniteutopia.networking.Messages;
 import fr.codecrafters.infiniteutopia.recipe.RecipesManager;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -82,7 +84,6 @@ public class InfiniteUtopia {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
         }
     }
 }

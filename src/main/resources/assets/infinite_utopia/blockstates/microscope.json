@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "infinite_utopia:block/microscope",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "infinite_utopia:block/microscope",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "infinite_utopia:block/microscope",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "infinite_utopia:block/microscope",
+      "y": 270
+    }
+  }
+}
