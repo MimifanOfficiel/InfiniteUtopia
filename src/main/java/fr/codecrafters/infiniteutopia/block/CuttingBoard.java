@@ -185,6 +185,8 @@ public class CuttingBoard extends Block implements EntityBlock {
                 if (itemStack != ItemStack.EMPTY) {
                     pLevel.addFreshEntity(new ItemEntity(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), itemStack));
                 }
+
+                cuttingBoardEntity.saveWithFullMetadata();
             }
         }
     }
