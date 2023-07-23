@@ -8,14 +8,14 @@
   "enchantment.infinite_utopia.telekinesis": "Telekinesis",
 
   "item.infinite_utopia.cooks_carver": "Cook's Carver",
-  "item.infinite_utopia.cutting_board": "Cutting Board",
+  "block.infinite_utopia.cutting_board": "Cutting Board",
 
 
   "item.infinite_utopia.food.minced_raw_beef": "Minced raw beef",
   "item.infinite_utopia.food.cooked_ground_beef.cooked_ground_beef": "Cooked Ground Beef",
 
 
-  "item.infinite_utopia.microscope": "Microscope",
+  "block.infinite_utopia.microscope": "Microscope",
   "item.infinite_utopia.elements.hydrogen": "Hydrogen",
   "item.infinite_utopia.elements.helium": "Helium",
   "item.infinite_utopia.elements.lithium": "Lithium",

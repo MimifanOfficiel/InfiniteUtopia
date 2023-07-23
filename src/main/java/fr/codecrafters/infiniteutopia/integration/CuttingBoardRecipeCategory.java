@@ -37,7 +37,7 @@ public class CuttingBoardRecipeCategory implements IRecipeCategory<CuttingBoardR
 
     @Override
     public @NotNull Component getTitle() {
-        return Component.translatable("item.infinite_utopia.cutting_board");
+        return Component.translatable("block.infinite_utopia.cutting_board");
     }
 
     @Override
