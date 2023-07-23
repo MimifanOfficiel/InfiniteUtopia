@@ -1,4 +1,4 @@
-package fr.codecrafters.integration;
+package fr.codecrafters.infiniteutopia.integration;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;

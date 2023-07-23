@@ -1,6 +1,5 @@
-package fr.codecrafters.integration;
+package fr.codecrafters.infiniteutopia.integration;
 
-import com.mojang.brigadier.Message;
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.BlocksManager;
 import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
@@ -12,14 +11,10 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.commands.arguments.MessageArgument;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
-
-import java.awt.*;
 
 public class CuttingBoardRecipeCategory implements IRecipeCategory<CuttingBoardRecipe> {
 
