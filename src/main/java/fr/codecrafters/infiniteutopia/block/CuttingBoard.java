@@ -2,9 +2,12 @@ package fr.codecrafters.infiniteutopia.block;
 
 import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
 import fr.codecrafters.infiniteutopia.block.entity.CuttingBoardEntity;
+import fr.codecrafters.infiniteutopia.networking.Messages;
+import fr.codecrafters.infiniteutopia.networking.packet.ItemStackSyncS2CPacket;
 import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
