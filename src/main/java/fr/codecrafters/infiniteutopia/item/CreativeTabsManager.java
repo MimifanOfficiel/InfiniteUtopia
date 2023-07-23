@@ -2,9 +2,8 @@ package fr.codecrafters.infiniteutopia.item;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.BlocksManager;
-import fr.codecrafters.infiniteutopia.block.entity.Microscope;
-import fr.codecrafters.infiniteutopia.item.elements.ChemicalElement;
-import fr.codecrafters.infiniteutopia.item.elements.ElementsRegister;
+import fr.codecrafters.infiniteutopia.item.elements.AtomItem;
+import fr.codecrafters.infiniteutopia.item.elements.AtomsRegister;
 import fr.codecrafters.infiniteutopia.item.food.Consumable;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -35,14 +34,20 @@ public class CreativeTabsManager {
                     })
                     .build());
 
-    public static final RegistryObject<CreativeModeTab> CHEMICAL_TAB = CREATIVE_MOD_TABS.register("chemical_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ElementsRegister.CARBON.get()))
+    public static final RegistryObject<CreativeModeTab> CHEMISTRY_TAB = CREATIVE_MOD_TABS.register("chemistry_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(BlocksManager.MICROSCOPE.get()))
                     .title(Component.translatable("creativetab.chemical_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(BlocksManager.MICROSCOPE.get());
+                    })
+                    .build());
 
+    public static final RegistryObject<CreativeModeTab> ATOMS_TAB = CREATIVE_MOD_TABS.register("atoms_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(AtomsRegister.CARBON.get()))
+                    .title(Component.translatable("creativetab.chemical_tab"))
+                    .displayItems((pParameters, pOutput) -> {
                         for (RegistryObject<Item> entry : ItemsManager.ITEMS.getEntries()) {
-                            if (entry.isPresent() && (entry.get()) instanceof ChemicalElement) {
+                            if (entry.isPresent() && (entry.get()) instanceof AtomItem) {
                                 pOutput.accept(entry.get());
                             }
                         }

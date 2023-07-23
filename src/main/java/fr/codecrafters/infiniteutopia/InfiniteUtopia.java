@@ -7,10 +7,9 @@ import fr.codecrafters.infiniteutopia.enchantments.EnchantmentsManager;
 import fr.codecrafters.infiniteutopia.event.EnchantmentEventHandler;
 import fr.codecrafters.infiniteutopia.item.CreativeTabsManager;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
-import fr.codecrafters.infiniteutopia.item.elements.ElementsRegister;
+import fr.codecrafters.infiniteutopia.item.elements.AtomsRegister;
 import fr.codecrafters.infiniteutopia.networking.Messages;
 import fr.codecrafters.infiniteutopia.recipe.RecipesManager;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -34,7 +33,7 @@ public class InfiniteUtopia {
 
         /* Items registration */
         ItemsManager.register(modEventBus);
-        ElementsRegister.register(modEventBus);
+        AtomsRegister.register(modEventBus);
 
 
         /* Blocks registration */

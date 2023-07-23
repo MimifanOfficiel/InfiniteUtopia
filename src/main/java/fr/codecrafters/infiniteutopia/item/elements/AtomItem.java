@@ -5,7 +5,7 @@ import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.NotNull;
 
 @Getter
-public class ChemicalElement extends Item {
+public class AtomItem extends Item {
 
     @NotNull
     private final String identifier;
@@ -20,7 +20,7 @@ public class ChemicalElement extends Item {
 
     private final double density;
 
-    public ChemicalElement(@NotNull String identifier, int atomicNumber, double atomicMass, double meltingPoint, double boilingPoint, double density) {
+    public AtomItem(@NotNull String identifier, int atomicNumber, double atomicMass, double meltingPoint, double boilingPoint, double density) {
         super(new Item.Properties());
 
         this.identifier = identifier;
