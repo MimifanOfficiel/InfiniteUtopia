@@ -31,12 +31,12 @@ public class CuttingBoardRecipeCategory implements IRecipeCategory<CuttingBoardR
     }
 
     @Override
-    public RecipeType<CuttingBoardRecipe> getRecipeType() {
+    public @NotNull RecipeType<CuttingBoardRecipe> getRecipeType() {
         return new RecipeType<>(CuttingBoardRecipeCategory.UID, CuttingBoardRecipe.class);
     }
 
     @Override
-    public Component getTitle() {
+    public @NotNull Component getTitle() {
         return Component.translatable("Cutting Board");
     }
 
@@ -51,7 +51,7 @@ public class CuttingBoardRecipeCategory implements IRecipeCategory<CuttingBoardR
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, CuttingBoardRecipe recipe, IFocusGroup focuses) {
+    public void setRecipe(IRecipeLayoutBuilder builder, CuttingBoardRecipe recipe, @NotNull IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 80, 11).addIngredients(recipe.getInput());
         builder.addSlot(RecipeIngredientRole.CATALYST, 100, 11).addIngredients(recipe.getTool());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 50, 50).addItemStack(recipe.getResultItem());

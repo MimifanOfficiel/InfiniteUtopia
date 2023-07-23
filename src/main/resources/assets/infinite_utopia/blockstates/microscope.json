@@ -4,11 +4,11 @@
       "model": "infinite_utopia:block/microscope",
       "y": 0
     },
-    "facing=south": {
+    "facing=east": {
       "model": "infinite_utopia:block/microscope",
       "y": 90
     },
-    "facing=east": {
+    "facing=south": {
       "model": "infinite_utopia:block/microscope",
       "y": 180
     },
