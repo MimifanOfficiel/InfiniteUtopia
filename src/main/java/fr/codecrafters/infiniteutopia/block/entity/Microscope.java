@@ -23,7 +23,7 @@ public class Microscope extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public Microscope() {
-        super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().dynamicShape());
+        super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().dynamicShape().requiresCorrectToolForDrops());
     }
 
     @Nullable
