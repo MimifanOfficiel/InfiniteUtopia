@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
@@ -58,6 +59,17 @@ public class CuttingBoardEntity extends BlockEntity {
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> handler);
+    }
+
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(handler.getSlots());
+        for (int i = 0; i < handler.getSlots(); i++) {
+            inventory.setItem(i, handler.getStackInSlot(i));
+        }
+
+        if (this.level == null) return;
+
+        Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
     @Override

@@ -178,15 +178,8 @@ public class CuttingBoard extends Block implements EntityBlock {
     public void onRemove(@NotNull BlockState pState, Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pNewState, boolean pIsMoving) {
         if (!pLevel.isClientSide()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof CuttingBoardEntity) {
-                CuttingBoardEntity cuttingBoardEntity = (CuttingBoardEntity) blockEntity;
-                ItemStack itemStack = cuttingBoardEntity.getItem();
-
-                if (itemStack != ItemStack.EMPTY) {
-                    pLevel.addFreshEntity(new ItemEntity(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), itemStack));
-                }
-
-                cuttingBoardEntity.saveWithFullMetadata();
+            if (blockEntity instanceof CuttingBoardEntity cuttingBoardEntity) {
+                cuttingBoardEntity.drops();
             }
         }
     }
