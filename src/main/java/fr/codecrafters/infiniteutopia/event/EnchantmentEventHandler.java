@@ -1,29 +1,23 @@
-package fr.codecrafters.infiniteutopia.enchantments.enchants.telekinesis;
+package fr.codecrafters.infiniteutopia.event;
 
 import fr.codecrafters.infiniteutopia.enchantments.EnchantmentsManager;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.util.List;
-
-
-public class MiningHandler {
+public class EnchantmentEventHandler {
 
     @SubscribeEvent
     public void onBreak(BlockEvent.BreakEvent event) {
-        Block block = event.getState().getBlock();
         BlockPos pos = event.getPos();
+
+        if(event.getPlayer().isCreative()) return;
         if( (event.getPlayer() != null) && (EnchantmentHelper.getEnchantmentLevel(EnchantmentsManager.TELEKINESIS.get(), event.getPlayer()) > 0) ){
 
             LevelAccessor level = event.getLevel();
