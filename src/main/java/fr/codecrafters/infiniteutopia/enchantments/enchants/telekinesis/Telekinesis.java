@@ -14,6 +14,4 @@ public class Telekinesis extends Enchantment {
         return 1;
     }
 
-
-
 }
