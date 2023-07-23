@@ -1,6 +1,7 @@
 package fr.codecrafters.infiniteutopia.recipe;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
+import fr.codecrafters.infiniteutopia.recipe.cooking.CuttingBoardRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

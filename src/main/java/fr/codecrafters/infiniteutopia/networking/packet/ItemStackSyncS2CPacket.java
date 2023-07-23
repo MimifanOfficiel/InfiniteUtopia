@@ -1,11 +1,10 @@
 package fr.codecrafters.infiniteutopia.networking.packet;
 
-import fr.codecrafters.infiniteutopia.block.entity.CuttingBoardEntity;
+import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoardEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.NetworkEvent;
 

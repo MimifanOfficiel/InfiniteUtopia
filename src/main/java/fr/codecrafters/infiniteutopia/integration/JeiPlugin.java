@@ -1,7 +1,7 @@
 package fr.codecrafters.infiniteutopia.integration;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
-import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
+import fr.codecrafters.infiniteutopia.recipe.cooking.CuttingBoardRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;

@@ -1,22 +1,17 @@
-package fr.codecrafters.infiniteutopia.recipe;
+package fr.codecrafters.infiniteutopia.recipe.cooking;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
-import fr.codecrafters.infiniteutopia.block.CuttingBoard;
 import lombok.Getter;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class CuttingBoardRecipe implements Recipe<SimpleContainer> {
 

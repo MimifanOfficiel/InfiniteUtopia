@@ -1,14 +1,11 @@
 package fr.codecrafters.infiniteutopia.block;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
-import fr.codecrafters.infiniteutopia.block.entity.Microscope;
+import fr.codecrafters.infiniteutopia.block.chemistry.Microscope;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

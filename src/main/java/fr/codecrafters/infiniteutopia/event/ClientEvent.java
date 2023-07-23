@@ -2,7 +2,7 @@ package fr.codecrafters.infiniteutopia.event;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
-import fr.codecrafters.infiniteutopia.block.entity.renderer.CuttingBoardEntityRenderer;
+import fr.codecrafters.infiniteutopia.block.cooking.renderer.CuttingBoardEntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

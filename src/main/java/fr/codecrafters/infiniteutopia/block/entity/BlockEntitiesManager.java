@@ -2,6 +2,7 @@ package fr.codecrafters.infiniteutopia.block.entity;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.BlocksManager;
+import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoardEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

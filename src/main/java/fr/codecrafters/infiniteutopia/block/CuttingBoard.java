@@ -1,17 +1,12 @@
 package fr.codecrafters.infiniteutopia.block;
 
-import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;
-import fr.codecrafters.infiniteutopia.block.entity.CuttingBoardEntity;
-import fr.codecrafters.infiniteutopia.networking.Messages;
-import fr.codecrafters.infiniteutopia.networking.packet.ItemStackSyncS2CPacket;
-import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
+import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoardEntity;
+import fr.codecrafters.infiniteutopia.recipe.cooking.CuttingBoardRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -21,8 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;

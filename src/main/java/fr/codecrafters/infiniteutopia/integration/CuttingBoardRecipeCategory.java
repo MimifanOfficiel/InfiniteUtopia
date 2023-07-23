@@ -2,7 +2,7 @@ package fr.codecrafters.infiniteutopia.integration;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.BlocksManager;
-import fr.codecrafters.infiniteutopia.recipe.CuttingBoardRecipe;
+import fr.codecrafters.infiniteutopia.recipe.cooking.CuttingBoardRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;

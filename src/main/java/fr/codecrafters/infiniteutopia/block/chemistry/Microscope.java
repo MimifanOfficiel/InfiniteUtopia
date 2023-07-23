@@ -1,4 +1,4 @@
-package fr.codecrafters.infiniteutopia.block.entity;
+package fr.codecrafters.infiniteutopia.block.chemistry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
