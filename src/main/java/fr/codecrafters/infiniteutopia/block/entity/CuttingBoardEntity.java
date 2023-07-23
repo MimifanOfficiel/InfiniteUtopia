@@ -65,6 +65,7 @@ public class CuttingBoardEntity extends BlockEntity {
         SimpleContainer inventory = new SimpleContainer(handler.getSlots());
         for (int i = 0; i < handler.getSlots(); i++) {
             inventory.setItem(i, handler.getStackInSlot(i));
+            handler.setStackInSlot(i, ItemStack.EMPTY);
         }
 
         if (this.level == null) return;
