@@ -26,7 +26,6 @@ public class Microscope extends Block {
         super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().dynamicShape().requiresCorrectToolForDrops());
     }
 
-
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
