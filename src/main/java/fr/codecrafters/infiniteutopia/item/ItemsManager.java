@@ -24,6 +24,9 @@ public class ItemsManager {
     public static final RegistryObject<Item> MINCED_RAW_BEEF = ITEMS.register("food/minced_raw_beef",
             () -> new Consumable(2, 0.2F));
 
+    public static final RegistryObject<Item> COOKED_GROUND_BEEF = ITEMS.register("food/cooked_ground_beef/cooked_ground_beef",
+            () -> new Consumable(8, 0.6F));
+
 
 
 
