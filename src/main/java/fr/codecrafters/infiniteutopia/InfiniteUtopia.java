@@ -8,6 +8,7 @@ import fr.codecrafters.infiniteutopia.enchantments.enchants.telekinesis.MiningHa
 import fr.codecrafters.infiniteutopia.item.CreativeTabsManager;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import fr.codecrafters.infiniteutopia.item.elements.ElementsRegister;
+import fr.codecrafters.infiniteutopia.networking.Messages;
 import fr.codecrafters.infiniteutopia.recipe.RecipesManager;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,8 +31,6 @@ public class InfiniteUtopia {
 
     public InfiniteUtopia() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-
 
         /* Items registration */
         ItemsManager.register(modEventBus);
@@ -67,7 +66,7 @@ public class InfiniteUtopia {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)  {
-
+        event.enqueueWork(Messages::register);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
