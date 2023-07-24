@@ -2,6 +2,8 @@ package fr.codecrafters.infiniteutopia.block;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.chemistry.Microscope;
+import fr.codecrafters.infiniteutopia.block.cooking.CookingPot;
+import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoard;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -23,6 +25,9 @@ public class BlocksManager {
 
     public static final RegistryObject<Block> MICROSCOPE = registerBlock("microscope",
             Microscope::new);
+
+    public static final RegistryObject<Block> COOKING_POT = registerBlock("cooking_pot",
+            CookingPot::new);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block, new Item.Properties());

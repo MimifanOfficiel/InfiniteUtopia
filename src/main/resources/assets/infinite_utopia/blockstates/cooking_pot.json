@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "infinite_utopia:block/cooking_pot",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "infinite_utopia:block/cooking_pot",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "infinite_utopia:block/cooking_pot",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "infinite_utopia:block/cooking_pot",
+      "y": 0
+    }
+  }
+}

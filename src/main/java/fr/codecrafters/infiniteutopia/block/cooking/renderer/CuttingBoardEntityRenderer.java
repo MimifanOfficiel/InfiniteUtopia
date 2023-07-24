@@ -1,8 +1,8 @@
 package fr.codecrafters.infiniteutopia.block.cooking.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import fr.codecrafters.infiniteutopia.block.CuttingBoard;
-import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoardEntity;
+import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoard;
+import fr.codecrafters.infiniteutopia.block.cooking.entity.CuttingBoardEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;

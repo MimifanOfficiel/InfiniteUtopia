@@ -1,4 +1,4 @@
-package fr.codecrafters.infiniteutopia.block.cooking;
+package fr.codecrafters.infiniteutopia.block.cooking.entity;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.entity.BlockEntitiesManager;

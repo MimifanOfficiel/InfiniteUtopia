@@ -1,6 +1,6 @@
-package fr.codecrafters.infiniteutopia.block;
+package fr.codecrafters.infiniteutopia.block.cooking;
 
-import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoardEntity;
+import fr.codecrafters.infiniteutopia.block.cooking.entity.CuttingBoardEntity;
 import fr.codecrafters.infiniteutopia.recipe.cooking.CuttingBoardRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

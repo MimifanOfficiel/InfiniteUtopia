@@ -31,6 +31,7 @@ public class CreativeTabsManager {
                     .title(Component.translatable("creativetab.blocks_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(BlocksManager.CUTTING_BOARD.get());
+                        pOutput.accept(BlocksManager.COOKING_POT.get());
                     })
                     .build());
 
