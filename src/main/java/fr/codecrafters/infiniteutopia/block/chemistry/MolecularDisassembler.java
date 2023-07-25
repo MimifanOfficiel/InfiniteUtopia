@@ -1,10 +1,12 @@
 package fr.codecrafters.infiniteutopia.block.chemistry;
 
+import fr.codecrafters.infiniteutopia.block.chemistry.entity.MolecularDisassemblerEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -14,7 +16,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class MolecularDisassembler extends Block {
+public class MolecularDisassembler extends Block implements EntityBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
@@ -51,5 +53,11 @@ public class MolecularDisassembler extends Block {
     @Override
     public @NotNull RenderShape getRenderShape(@NotNull BlockState pState) {
         return RenderShape.MODEL;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        return new MolecularDisassemblerEntity(pPos, pState);
     }
 }

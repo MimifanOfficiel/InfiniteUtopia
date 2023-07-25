@@ -22,6 +22,7 @@ import org.joml.Quaternionf;
 
 public class CuttingBoardEntityRenderer implements BlockEntityRenderer<CuttingBoardEntity> {
     public CuttingBoardEntityRenderer(BlockEntityRendererProvider.Context context) {
+
     }
 
     @Override
