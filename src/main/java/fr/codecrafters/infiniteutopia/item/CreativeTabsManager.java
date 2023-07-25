@@ -47,6 +47,8 @@ public class CreativeTabsManager {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(AtomsRegister.CARBON.get()))
                     .title(Component.translatable("creativetab.chemical_tab"))
                     .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(BlocksManager.MOLECULAR_DISASSEMBLER.get());
+
                         for (RegistryObject<Item> entry : ItemsManager.ITEMS.getEntries()) {
                             if (entry.isPresent() && (entry.get()) instanceof AtomItem) {
                                 pOutput.accept(entry.get());

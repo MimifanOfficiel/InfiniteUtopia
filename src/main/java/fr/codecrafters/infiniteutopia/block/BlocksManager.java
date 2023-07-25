@@ -2,6 +2,7 @@ package fr.codecrafters.infiniteutopia.block;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.block.chemistry.Microscope;
+import fr.codecrafters.infiniteutopia.block.chemistry.MolecularDisassembler;
 import fr.codecrafters.infiniteutopia.block.cooking.CookingPot;
 import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoard;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
@@ -25,6 +26,9 @@ public class BlocksManager {
 
     public static final RegistryObject<Block> MICROSCOPE = registerBlock("microscope",
             Microscope::new);
+
+    public static final RegistryObject<Block> MOLECULAR_DISASSEMBLER = registerBlock("molecular_disassembler",
+            MolecularDisassembler::new);
 
     public static final RegistryObject<Block> COOKING_POT = registerBlock("cooking_pot",
             CookingPot::new);

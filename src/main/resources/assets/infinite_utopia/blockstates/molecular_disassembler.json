@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "infinite_utopia:block/molecular_disassembler",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "infinite_utopia:block/molecular_disassembler",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "infinite_utopia:block/molecular_disassembler",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "infinite_utopia:block/molecular_disassembler",
+      "y": 270
+    }
+  }
+}
