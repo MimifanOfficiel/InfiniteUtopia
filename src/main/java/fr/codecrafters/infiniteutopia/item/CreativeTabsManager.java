@@ -69,6 +69,15 @@ public class CreativeTabsManager {
                     })
                     .build());
 
+    public static final RegistryObject<CreativeModeTab> COOKING_TAB = CREATIVE_MOD_TABS.register("cooking_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(BlocksManager.COOKING_POT.get()))
+                    .title(Component.translatable("creativetab.cooking_tab"))
+                    .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(BlocksManager.COOKING_POT.get());
+                    })
+                    .build());
+
+
     public static void register(IEventBus eventBus){
         CREATIVE_MOD_TABS.register(eventBus);
     }

@@ -43,8 +43,8 @@ public class BlocksManager {
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, Item.Properties properties) {
-        return ItemsManager.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, Item.Properties properties) {
+        ItemsManager.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
     }
 
 

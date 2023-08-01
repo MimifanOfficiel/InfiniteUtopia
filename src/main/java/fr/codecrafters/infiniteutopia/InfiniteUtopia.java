@@ -10,6 +10,10 @@ import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import fr.codecrafters.infiniteutopia.item.elements.AtomsRegister;
 import fr.codecrafters.infiniteutopia.networking.Messages;
 import fr.codecrafters.infiniteutopia.recipe.RecipesManager;
+import fr.codecrafters.infiniteutopia.screen.MenuTypes;
+import fr.codecrafters.infiniteutopia.screen.cooking_pot.CookingPotMenu;
+import fr.codecrafters.infiniteutopia.screen.cooking_pot.CookingPotScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -39,6 +43,8 @@ public class InfiniteUtopia {
         /* Blocks registration */
         BlocksManager.register(modEventBus);
         BlockEntitiesManager.register(modEventBus);
+
+        MenuTypes.register(modEventBus);
 
 
         /* Creative tabs registration */
@@ -81,7 +87,7 @@ public class InfiniteUtopia {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            MenuScreens.register(MenuTypes.COOKING_POT_MENU.get(), CookingPotScreen::new);
         }
     }
 }

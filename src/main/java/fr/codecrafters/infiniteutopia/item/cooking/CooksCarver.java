@@ -13,7 +13,6 @@ public class CooksCarver extends Item {
 
     @Override
     public @NotNull InteractionResult useOn(UseOnContext pContext) {
-        //TODO CUTS FOOD ON THE CUTTING BOARD
 
         return super.useOn(pContext);
     }

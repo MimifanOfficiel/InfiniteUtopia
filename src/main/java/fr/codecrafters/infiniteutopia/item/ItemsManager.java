@@ -4,6 +4,7 @@ import fr.codecrafters.infiniteutopia.InfiniteUtopia;
 import fr.codecrafters.infiniteutopia.item.cooking.CooksCarver;
 import fr.codecrafters.infiniteutopia.item.food.Consumable;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,8 +26,11 @@ public class ItemsManager {
             () -> new Consumable(2, 0.2F));
 
     public static final RegistryObject<Item> COOKED_GROUND_BEEF = ITEMS.register("food/cooked_ground_beef/cooked_ground_beef",
-            () -> new Consumable(8, 0.6F));
+            () -> new Consumable(5, 0.8F));
 
+
+    public static final RegistryObject<Item> WATER_BOWL = ITEMS.register("food_tools/water_bowl",
+            () -> new Item(new Item.Properties()));
 
 
 

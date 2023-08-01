@@ -98,13 +98,11 @@ public class CuttingBoardRecipe implements Recipe<SimpleContainer> {
             Ingredient tool = Ingredient.fromNetwork(buf);
             ItemStack output = buf.readItem();
 
-            System.out.println(id + " " + output + " " + tool + " " + input);
-
             return new CuttingBoardRecipe(id, output, tool, input);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, CuttingBoardRecipe recipe) {
+        public void toNetwork(@NotNull FriendlyByteBuf buf, CuttingBoardRecipe recipe) {
             recipe.getInput().toNetwork(buf);
             recipe.getTool().toNetwork(buf);
             buf.writeItemStack(recipe.getResultItem(), false);

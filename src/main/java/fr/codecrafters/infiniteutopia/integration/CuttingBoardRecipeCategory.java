@@ -52,8 +52,8 @@ public class CuttingBoardRecipeCategory implements IRecipeCategory<CuttingBoardR
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CuttingBoardRecipe recipe, @NotNull IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 80, 11).addIngredients(recipe.getInput());
-        builder.addSlot(RecipeIngredientRole.CATALYST, 100, 11).addIngredients(recipe.getTool());
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 50, 50).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT, 25, 30).addIngredients(recipe.getInput());
+        builder.addSlot(RecipeIngredientRole.CATALYST, 55, 30).addIngredients(recipe.getTool());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 130, 30).addItemStack(recipe.getResultItem());
     }
 }

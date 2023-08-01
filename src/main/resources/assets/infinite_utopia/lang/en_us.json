@@ -3,6 +3,7 @@
   "creativetab.blocks_tab": "Infinite Utopia's blocks",
   "creativetab.chemical_tab": "Infinite Utopia's chemical elements",
   "creativetab.food_tab": "Infinite Utopia's food",
+  "creativetab.cooking_tab": "Infinite Utopia : Cooking",
 
 
   "enchantment.infinite_utopia.telekinesis": "Telekinesis",
@@ -14,6 +15,7 @@
 
   "item.infinite_utopia.food.minced_raw_beef": "Minced raw beef",
   "item.infinite_utopia.food.cooked_ground_beef.cooked_ground_beef": "Cooked Ground Beef",
+  "item.infinite_utopia.food_tools.water_bowl": "Water bowl",
 
 
 
@@ -137,4 +139,5 @@
   "item.infinite_utopia.elements.livermorium": "Livermorium",
   "item.infinite_utopia.elements.tennessine": "Tennessine",
   "item.infinite_utopia.elements.oganesson": "Oganesson"
+
 }

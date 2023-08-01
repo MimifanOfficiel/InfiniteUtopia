@@ -9,7 +9,7 @@ public class Consumable extends Item {
     private float saturation;
 
     public Consumable(int nutrition, float saturation) {
-        super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).build()));
+        super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(nutrition).saturationMod(saturation).build()));
 
         this.nutrition = nutrition;
         this.saturation = saturation;
