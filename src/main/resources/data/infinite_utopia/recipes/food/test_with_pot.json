@@ -1,0 +1,11 @@
+{
+  "type": "infinite_utopia:pot_cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "output": {
+    "item": "minecraft:iron_ingot"
+  }
+}

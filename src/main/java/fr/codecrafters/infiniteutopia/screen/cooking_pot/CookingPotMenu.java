@@ -7,9 +7,7 @@ import fr.codecrafters.infiniteutopia.screen.slot.ResultSlots;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -20,16 +18,18 @@ public class CookingPotMenu extends AbstractContainerMenu {
 
     private final CookingPotEntity blockEntity;
     private final Level level;
+    private final ContainerData data;
 
     public CookingPotMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(6));
     }
 
-    public CookingPotMenu(int pContainerId, Inventory inv, BlockEntity entity) {
+    public CookingPotMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(MenuTypes.COOKING_POT_MENU.get(), pContainerId);
         checkContainerSize(inv, 9);
         blockEntity = ((CookingPotEntity) entity);
         this.level = inv.player.level();
+        this.data = data;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
@@ -48,6 +48,19 @@ public class CookingPotMenu extends AbstractContainerMenu {
             this.addSlot(new ResultSlots(handler, 8, 134, 26));
         });
 
+        addDataSlots(data);
+
+    }
+
+    public boolean isCrafting(){
+        return data.get(0) > 0;
+    }
+
+    public int getScaledProgress(){
+        int progress = data.get(0);
+        int maxProgress = data.get(1);
+        int progressArrowSize = 26;
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
