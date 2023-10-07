@@ -1,7 +1,7 @@
 {
         "parent": "item/generated",
         "textures": {
-          "layer0": "infinite_utopia:item/elements/cesium"
+          "layer0": "infinite_utopia:item/elements/caesium"
         }
       
       }

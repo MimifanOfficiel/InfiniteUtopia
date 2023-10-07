@@ -32,7 +32,7 @@ import org.slf4j.Logger;
 @Mod(InfiniteUtopia.MOD_ID)
 public class InfiniteUtopia {
     public static final String MOD_ID = "infinite_utopia";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public InfiniteUtopia() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
