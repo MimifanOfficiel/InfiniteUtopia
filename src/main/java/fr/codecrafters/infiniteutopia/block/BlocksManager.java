@@ -5,10 +5,13 @@ import fr.codecrafters.infiniteutopia.block.chemistry.Microscope;
 import fr.codecrafters.infiniteutopia.block.chemistry.MolecularDisassembler;
 import fr.codecrafters.infiniteutopia.block.cooking.CookingPot;
 import fr.codecrafters.infiniteutopia.block.cooking.CuttingBoard;
+import fr.codecrafters.infiniteutopia.block.crops.OnionBlock;
 import fr.codecrafters.infiniteutopia.item.ItemsManager;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -32,6 +35,15 @@ public class BlocksManager {
 
     public static final RegistryObject<Block> COOKING_POT = registerBlock("cooking_pot",
             CookingPot::new);
+
+    public static final RegistryObject<Block> ONION_PLANT = registerBlockWithoutItem("plant/onion_plant",
+            () -> new OnionBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
+
+
+
+    private static <T extends Block> RegistryObject<T> registerBlockWithoutItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
+    }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block, new Item.Properties());

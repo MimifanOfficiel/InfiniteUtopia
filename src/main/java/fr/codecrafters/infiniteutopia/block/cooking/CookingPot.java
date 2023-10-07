@@ -7,7 +7,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -82,7 +81,7 @@ public class CookingPot extends BaseEntityBlock {
     }
 
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+    public void onRemove(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if(pState.getBlock() != pNewState.getBlock()){
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if(blockEntity instanceof CookingPotEntity){
@@ -115,6 +114,8 @@ public class CookingPot extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, BlockEntitiesManager.COOKING_POT_ENTITY.get(), CookingPotEntity::tick);
+        return createTickerHelper(pBlockEntityType, BlockEntitiesManager.COOKING_POT_ENTITY.get(),
+                CookingPotEntity::tick);
     }
+
 }

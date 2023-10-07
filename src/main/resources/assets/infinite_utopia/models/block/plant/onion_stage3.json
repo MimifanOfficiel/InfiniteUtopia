@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "infinite_utopia:block/plant/onion_stage3"
+  }
+}

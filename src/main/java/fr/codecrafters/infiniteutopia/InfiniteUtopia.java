@@ -14,6 +14,8 @@ import fr.codecrafters.infiniteutopia.screen.MenuTypes;
 import fr.codecrafters.infiniteutopia.screen.cooking_pot.CookingPotMenu;
 import fr.codecrafters.infiniteutopia.screen.cooking_pot.CookingPotScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -72,6 +74,8 @@ public class InfiniteUtopia {
 
     private void commonSetup(final FMLCommonSetupEvent event)  {
         event.enqueueWork(Messages::register);
+
+        ItemBlockRenderTypes.setRenderLayer(BlocksManager.ONION_PLANT.get(), RenderType.cutout());
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

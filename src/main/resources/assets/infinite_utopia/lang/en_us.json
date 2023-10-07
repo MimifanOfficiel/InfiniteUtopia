@@ -4,6 +4,7 @@
   "creativetab.chemical_tab": "Infinite Utopia's chemical elements",
   "creativetab.food_tab": "Infinite Utopia's food",
   "creativetab.cooking_tab": "Infinite Utopia : Cooking",
+  "creativetab.crops_tab": "Infinite Utopia's Crops",
 
 
   "enchantment.infinite_utopia.telekinesis": "Telekinesis",
@@ -17,6 +18,8 @@
   "item.infinite_utopia.food.cooked_ground_beef.cooked_ground_beef": "Cooked Ground Beef",
   "item.infinite_utopia.food_tools.water_bowl": "Water bowl",
 
+
+  "item.infinite_utopia.plant.onion_seeds": "Onion Seeds",
 
 
   "block.infinite_utopia.microscope": "Microscope",
@@ -138,6 +141,8 @@
   "item.infinite_utopia.elements.moscovium": "Moscovium",
   "item.infinite_utopia.elements.livermorium": "Livermorium",
   "item.infinite_utopia.elements.tennessine": "Tennessine",
-  "item.infinite_utopia.elements.oganesson": "Oganesson"
+  "item.infinite_utopia.elements.oganesson": "Oganesson",
+  "infinite_utopia.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "infinite_utopia.tooltip.liquid.amount": "%s mB"
 
 }

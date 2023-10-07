@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class CookingPotMenu extends AbstractContainerMenu {
@@ -19,6 +20,7 @@ public class CookingPotMenu extends AbstractContainerMenu {
     private final CookingPotEntity blockEntity;
     private final Level level;
     private final ContainerData data;
+    private FluidStack fluidStack;
 
     public CookingPotMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(6));
@@ -30,6 +32,7 @@ public class CookingPotMenu extends AbstractContainerMenu {
         blockEntity = ((CookingPotEntity) entity);
         this.level = inv.player.level();
         this.data = data;
+        this.fluidStack = blockEntity.getFluidStack();
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
@@ -42,8 +45,8 @@ public class CookingPotMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(handler, 4, 44, 34));
             this.addSlot(new SlotItemHandler(handler, 5, 62, 34));
 
-            this.addSlot(new SlotItemHandler(handler, 6, 99, 55));
-            this.addSlot(new SlotItemHandler(handler, 7, 134, 55));
+            this.addSlot(new SlotItemHandler(handler, 6, 99, 56));
+            this.addSlot(new SlotItemHandler(handler, 7, 134, 56));
 
             this.addSlot(new ResultSlots(handler, 8, 134, 26));
         });
@@ -55,6 +58,16 @@ public class CookingPotMenu extends AbstractContainerMenu {
     public boolean isCrafting(){
         return data.get(0) > 0;
     }
+
+    public void setFluid(FluidStack fluidStack) {
+        this.fluidStack = fluidStack;
+    }
+
+    public FluidStack getFluid() {
+        return fluidStack;
+    }
+
+    public CookingPotEntity getBlockEntity() { return this.blockEntity; }
 
     public int getScaledProgress(){
         int progress = data.get(0);
@@ -132,6 +145,7 @@ public class CookingPotMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(inventory, i, 8+i*18, 142));
         }
     }
+
 
 
 }

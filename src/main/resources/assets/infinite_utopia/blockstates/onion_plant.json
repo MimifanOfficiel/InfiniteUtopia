@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": { "model": "infinite_utopia:block/plant/onion_stage0" },
+    "age=1": { "model": "infinite_utopia:block/plant/onion_stage1" },
+    "age=2": { "model": "infinite_utopia:block/plant/onion_stage2" },
+    "age=3": { "model": "infinite_utopia:block/plant/onion_stage3" },
+    "age=4": { "model": "infinite_utopia:block/plant/onion_stage4" },
+    "age=5": { "model": "infinite_utopia:block/plant/onion_stage5" }
+  }
+}

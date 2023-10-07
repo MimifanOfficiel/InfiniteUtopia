@@ -1,0 +1,69 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "infinite_utopia:block/plant/onion_plant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "age": "5"
+                  }
+                }
+              ],
+              "name": "infinite_utopia:item/plant/onion"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "infinite_utopia:item/plant/onion_seeds"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "infinite_utopia:block/plant/onion_plant",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "5"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "infinite_utopia:item/plant/onion_seeds",
+          "functions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:binomial_with_bonus_count",
+              "function": "minecraft:apply_bonus",
+              "parameters": {
+                "extra": 3,
+                "probability": 0.5714286
+              }
+            }
+          ],
+          "name": "infinite_utopia:item/plant/onion"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "infinite_utopia:item/plant/onion_plant"
+}

@@ -3,9 +3,16 @@
   "ingredients": [
     {
       "item": "minecraft:carrot"
+    }, {
+      "item": "minecraft:oak_log"
     }
   ],
+  "fluid":{
+    "FluidName": "minecraft:water",
+    "Amount": 500
+  },
   "output": {
-    "item": "minecraft:iron_ingot"
+    "item": "minecraft:iron_ingot",
+    "count": 1
   }
 }

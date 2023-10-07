@@ -77,6 +77,14 @@ public class CreativeTabsManager {
                     })
                     .build());
 
+    public static final RegistryObject<CreativeModeTab> CROPS_TAB = CREATIVE_MOD_TABS.register("crops_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsManager.ONION_SEEDS.get()))
+                    .title(Component.translatable("creativetab.crops_tab"))
+                    .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ItemsManager.ONION_SEEDS.get());
+                    })
+                    .build());
+
 
     public static void register(IEventBus eventBus){
         CREATIVE_MOD_TABS.register(eventBus);

@@ -1,9 +1,11 @@
 package fr.codecrafters.infiniteutopia.item;
 
 import fr.codecrafters.infiniteutopia.InfiniteUtopia;
+import fr.codecrafters.infiniteutopia.block.BlocksManager;
 import fr.codecrafters.infiniteutopia.item.cooking.CooksCarver;
 import fr.codecrafters.infiniteutopia.item.food.Consumable;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -32,6 +34,9 @@ public class ItemsManager {
     public static final RegistryObject<Item> WATER_BOWL = ITEMS.register("food_tools/water_bowl",
             () -> new Item(new Item.Properties()));
 
-
+    public static final RegistryObject<Item> ONION = ITEMS.register("plant/onion",
+            () -> new Consumable(1, 0.2f));
+    public static final RegistryObject<Item> ONION_SEEDS = ITEMS.register("plant/onion_seeds",
+            () -> new ItemNameBlockItem(BlocksManager.ONION_PLANT.get(), new Item.Properties()));
 
 }
